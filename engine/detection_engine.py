@@ -29,7 +29,10 @@ class DetectionEngine:
                         "type": "SSH Brute Force",
                         "source_ip": ip,
                         "attempts": count,
-                        "severity": "HIGH"
+                        "severity": "HIGH",
+                        "mitre_id": "T1110",
+                        "mitre_name": "Brute Force",
+                        "tactic": "Credential Access"
                     }
                 )
 

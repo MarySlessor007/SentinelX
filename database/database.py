@@ -26,7 +26,13 @@ class AlertDatabase:
 
             status TEXT DEFAULT 'OPEN',
 
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+            mitre_id TEXT,
+
+            mitre_name TEXT,
+
+            tactic TEXT
 
         )
         """
@@ -39,9 +45,9 @@ class AlertDatabase:
 
         query = """
         INSERT INTO alerts
-        (type, source_ip, attempts, severity)
+        (type, source_ip, attempts, severity, mitre_id, mitre_name, tactic)
 
-        VALUES (?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
         """
 
         self.connection.execute(
@@ -50,7 +56,10 @@ class AlertDatabase:
                 alert["type"],
                 alert["source_ip"],
                 alert["attempts"],
-                alert["severity"]
+                alert["severity"],
+                alert["mitre_id"],
+                alert["mitre_name"],
+                alert["tactic"]
             )
         )
 
