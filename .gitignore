@@ -16,3 +16,6 @@ logs/*.log
 
 # Environment files
 .env
+
+# SentinelX database
+*.db
