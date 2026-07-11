@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>SentinelX SOC Dashboard</title>
+
+
+<style>
+
+body {
+
+    background:#0f172a;
+    color:white;
+    font-family:Arial;
+    padding:40px;
+
+}
+
+
+.card {
+
+    background:#1e293b;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+
+}
+
+
+.high {
+
+    border-left:8px solid red;
+
+}
+
+
+h1 {
+
+    color:#38bdf8;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<h1>
+SentinelX SOC Dashboard
+</h1>
+
+
+<div class="card">
+
+<h2>
+Total Alerts:
+{{ alerts|length }}
+</h2>
+
+</div>
+
+
+
+{% for alert in alerts %}
+
+
+<div class="card high">
+
+
+<h2>
+{{ alert[1] }}
+</h2>
+
+
+<p>
+Source IP:
+{{ alert[2] }}
+</p>
+
+
+<p>
+Attempts:
+{{ alert[3] }}
+</p>
+
+
+<p>
+Severity:
+{{ alert[4] }}
+</p>
+
+
+<p>
+Status:
+{{ alert[5] }}
+</p>
+
+
+<p>
+
+MITRE:
+
+{{ alert[7] }}
+
+-
+
+{{ alert[8] }}
+
+</p>
+
+
+</div>
+
+
+{% endfor %}
+
+
+
+</body>
+
+</html>
